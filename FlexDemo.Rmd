@@ -1,0 +1,46 @@
+---
+title: "My Super Cool Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Highcharter Viz
+
+```{r}
+library(highcharter)
+library(forecast)
+forecast(AirPassengers) %>% hchart()
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Plotly
+
+```{r}
+library(plotly)
+g <- ggplot(mpg) +
+  geom_jitter(aes(x=displ,y=hwy,color=class))
+
+ggplotly(g)
+```
+
+### Notes
+Let's just add a little write up about our analysis here
+http://rmarkdown.rstudio.com/flexdashboard/examples.html
+
+```{r}
+
+```
+
